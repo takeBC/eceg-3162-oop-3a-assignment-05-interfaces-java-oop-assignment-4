@@ -1,6 +1,14 @@
 package com.jju;
+public class PayPal implements PaymentMethod {
 
-public interface PaymentMethod {
-    // The contract: any class implementing this MUST have a processPayment method
-    void processPayment(double amount);
+    private String email;
+
+    public PayPal(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public void processPayment(double amount) {
+        System.out.println("Redirecting $" + amount + " to PayPal account: " + email);
+    }
 }
